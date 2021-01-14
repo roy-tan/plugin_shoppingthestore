@@ -1,0 +1,126 @@
+.dw-wizard {
+    border-radius: 3px;
+    z-index: 300;
+    margin-bottom: 1em;
+}
+
+.dw-wizard-progress {
+    margin-bottom: 0;
+    list-style-type: none;
+    counter-reset: a;
+}
+
+.dw-wizard-progress::after,
+.dw-wizard-progress::before {
+    display: table;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-order: 1;
+    order: 1;
+    content: " ";
+}
+
+.dw-wizard-progress::after {
+    clear: both;
+}
+
+.dw-wizard-progress-item {
+    position: relative;
+}
+
+.dw-wizard-progress-item.is-disabled.is-disabled,
+.dw-wizard-progress-item[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.dw-wizard-progress-item.is-active {
+    pointer-events: none;
+}
+
+.dw-wizard-progress-item.is-active .dw-wizard-progress-link {
+    color: #111;
+}
+
+.dw-wizard-progress-item.is-active .dw-wizard-progress-link::before {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.dw-wizard-progress-link {
+    display: block;
+    color: #111;
+    text-decoration: none;
+}
+
+.dw-wizard-progress-link:hover {
+    border: 0;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.dw-wizard-progress-horizontal {
+    display: table;
+    width: 100%;
+    max-width: 80em;
+    margin-top: -2px;
+}
+
+.dw-wizard-progress-horizontal::after,
+.dw-wizard-progress-horizontal::before {
+    display: table;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-order: 1;
+    order: 1;
+    content: " ";
+}
+
+.dw-wizard-progress-horizontal::after {
+    clear: both;
+}
+
+.dw-wizard-progress-horizontal .dw-wizard-progress-item {
+    display: table-cell;
+    background-image: linear-gradient(var(--primary-color), var(--primary-color));
+    background-repeat: no-repeat;
+    background-position: 0 30%;
+    background-size: 100% 2px;
+}
+
+.dw-wizard-progress-horizontal .dw-wizard-progress-item[disabled][disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.dw-wizard-progress-horizontal .dw-wizard-progress-link {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    float: left;
+    text-align: center;
+}
+
+.dw-wizard-progress-horizontal .dw-wizard-progress-link::before {
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--primary-color);
+    border-radius: 28px;
+    background-color: #fff;
+    color: var(--primary-color);
+    line-height: 24px;
+    text-align: center;
+    content: "";
+    display: block;
+    margin: 0.25em auto;
+}
+
+.dw-wizard-progress-horizontal .dw-wizard-progress-link:hover::before {
+    border-color: var(--primary-color);
+    background-color: #d5e5f9;
+    color: var(--primary-color);
+}

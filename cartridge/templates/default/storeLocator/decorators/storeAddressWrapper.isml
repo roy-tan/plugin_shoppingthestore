@@ -1,0 +1,4 @@
+<isset name="store" value="${pdict.store}" scope="page"/>
+<isif condition="${!empty(store)}" >
+    <isinclude template="storeLocator/decorators/storeAddress" />
+</isif>

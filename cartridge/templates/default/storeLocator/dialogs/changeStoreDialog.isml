@@ -1,0 +1,27 @@
+<div class="modal fade" id="changeStoreModal" tabindex="-1" role="dialog" aria-labelledby="changeStoreModalText" data-RemoveNotAvailableItemsAction="${URLUtils.https('Cart-RemoveNotAvailableItems')}" data-GetNotAvailableItemsAction="${URLUtils.https('Cart-GetNotAvailableItems')}">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <h5>
+                        ${Resource.msg('heading.changeStore', 'shoppingthestore', null)}
+                    </h5>
+                </div>
+                <div id="changeStoreModalText">
+                    <div id="nbItemsToBeRemoved" class="d-inline"></div>
+                    ${Resource.msg('label.changestore1', 'shoppingthestore', null)}
+                    <div id="storeNameToBeChangedTo" class="d-inline"></div>
+                    ${Resource.msg('label.changestore2', 'shoppingthestore', null)}
+                </div>
+                <div class="mt-4  d-flex justify-content-center w-100">
+                    <button type="button" class="btn btn-secondary w-25 justify-content-center mx-2" data-dismiss="modal" aria-label="${Resource.msg('label.cancel', 'shoppingthestore', null)}">
+                        ${Resource.msg('label.cancel', 'shoppingthestore', null)}
+                    </button>
+                    <button id="btn-continue-box" type="button" class="btn btn-primary w-25 justify-content-center mx-2" data-dismiss="modal" method="post" data-action="${URLUtils.https('Stores-SelectStore')}" aria-label="${Resource.msg('label.continueswitchstore', 'shoppingthestore', null)}">
+                        ${Resource.msg('label.continue', 'shoppingthestore', null)}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

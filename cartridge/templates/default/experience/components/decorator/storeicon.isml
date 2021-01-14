@@ -1,0 +1,6 @@
+<div class="navbar-header hidden-sm-down">
+    <div id="mystore" class="store d-inline-block" 
+        data-url="${URLUtils.url('Stores-CurrentStore')}">
+        <isinclude url="${URLUtils.url('Stores-CurrentStore')}" />
+    </div>
+</div>

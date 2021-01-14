@@ -1,0 +1,39 @@
+
+<div class="modal show d-block" id="consent-tracking" aria-modal="true" role="dialog">
+        <div class="modal-dialog mw-100 my-0 fixed-bottom">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="hidden-sm-down col-1"></div>
+                        <div class="col-12 col-sm-10">
+                            <h1>
+                                ${Resource.msg('heading.consentTracking.track.consent', 'common', null)}
+                            </h1>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="hidden-sm-down col-1"></div>
+                        <div class="col-12 col-sm-10">
+                            <div class="modal-body-consent">
+                                <isinclude template="components/content/contentAssetInc"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="hidden-sm-down col-1"></div>
+                        <div class="col-12 col-sm-10">
+                            <div class="button-wrapper w-100">
+                                <button class="affirm btn btn-primary pull-right w-25" data-url="${URLUtils.url('ConsentTracking-SetSession', 'consent', 'true')}">
+                                    ${Resource.msg('button.consentTracking.yes', 'common', null)}                                
+                                </button>
+                                <button class="decline btn btn-secondary pull-right w-25" data-url="${URLUtils.url('ConsentTracking-SetSession', 'consent', 'false')}">
+                                    ${Resource.msg('button.consentTracking.no', 'common', null)}  
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

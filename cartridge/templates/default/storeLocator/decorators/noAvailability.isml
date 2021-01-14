@@ -1,0 +1,3 @@
+${Resource.msg('label.NoSlotIn', 'shoppingthestore', null)} 
+${dw.system.Site.getCurrent().getCustomPreferenceValue('availableSlotDays')}  
+${Resource.msg('label.days', 'shoppingthestore', null)}

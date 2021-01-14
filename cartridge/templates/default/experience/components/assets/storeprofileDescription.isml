@@ -1,0 +1,35 @@
+
+<style>
+.mainbanner-image {
+    height: 50vh;
+}
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <div class="mainbanner-container">
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <h4>
+                            ${pdict.storename}
+                        </h4>
+                    </div>
+                    <div>
+                        <isprint value="${pdict.storedescription}" encoding="off"/>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <h4>
+                            ${pdict.detailname}
+                        </h4>
+                    </div>
+                    <div>
+                        <isprint value="${pdict.detaildescription}" encoding="off"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

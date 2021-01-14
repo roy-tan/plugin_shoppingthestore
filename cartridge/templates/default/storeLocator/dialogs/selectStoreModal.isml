@@ -1,0 +1,52 @@
+<div class="modal fade" id="selectStoreModal" tabindex="-1" role="dialog" aria-labelledby="${Resource.msg('label.selectStoreModalTitle', 'shoppingthestore', null)}">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-footer pb-1">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="modal-title d-flex justify-content-center">
+                                ${Resource.msg('title.selectstore', 'shoppingthestore', null)}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            ${Resource.msg('label.selectstore', 'shoppingthestore', null)}
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center">
+                                <div class="mx-1">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-noStore" method="post" data-action="${URLUtils.https('Stores-noStore')}" data-redirecturl="${URLUtils.home().toString()}" aria-label="${Resource.msg('label.cancelStoreSelectorAria', 'shoppingthestore', null)}">
+                                        ${Resource.msg('label.cancelStoreSelector', 'shoppingthestore', null)}
+                                    </button>
+                                </div>
+                                <div class="mx-1">
+                                    <form action="${URLUtils.https('Stores-Find')}">
+                                        <input type="hidden" name="showMap" value="true"/>
+                                        <input type="hidden" name="radius" value="30"/>
+                                        <button type="submit" class="btn btn-primary" aria-label="${Resource.msg('label.continueStoreSelector', 'shoppingthestore', null)}">
+                                            ${Resource.msg('label.continueStoreSelector', 'shoppingthestore', null)}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pb-0">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center">
+                                ${Resource.msg('label.haveaccount', 'shoppingthestore', null)} 
+                                <u><a href="${URLUtils.https('Login-Show')}" aria-label="${Resource.msg('label.loginShow', 'shoppingthestore', null)}">${Resource.msg('label.login', 'shoppingthestore', null)}</a></u>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

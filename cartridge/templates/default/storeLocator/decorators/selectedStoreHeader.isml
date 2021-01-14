@@ -1,0 +1,10 @@
+        <div id="selectStoreHeader" 
+            data-preferredStoreId="${pdict.preferredStoreId}" 
+            class='text-truncate headerstore titlebox<isif condition="${empty(pdict.preferredStoreId)}"> d-none<iselse> d-inline-block</isif>'>
+            <div >
+                <i class="fa fa-map-marker"></i> ${Resource.msg('link.pickupat', 'shoppingthestore', null)}
+            </div>
+            <u>
+                <isif condition="${!empty(pdict.store)}">${pdict.store.name}</isif>
+            </u>
+        </div>

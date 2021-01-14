@@ -1,0 +1,30 @@
+<div data-store-id="${store.ID}">
+    <div class="row">
+        <div class="col-9 pr-1">
+            <isinclude template="storeLocator/decorators/storeAddress"/>
+        </div>
+        <div class="col-3 pl-1">
+            <div class="position-relative h-100 w-100 infobox">
+                <isif condition="${'distance' in store && store.distance}">
+                    <div class="font-weight-bold pull-right">
+                        ${store.distance}
+                    </div>
+                </isif>
+            </div>
+        </div>
+        <div class="col-12 infobox mt-2">
+            <button aria-label="${Resource.msg('label.nextscheduleAria', 'shoppingthestore', null)}" class="selectstore d-none btn btn-block btn-primary text-center" data-action="${URLUtils.https('Stores-SelectStore')}" data-storeid="${store.ID}"
+                    data-storename="${store.name}" method="post"
+                    type="submit">
+                ${Resource.msg('label.nextschedule', 'shoppingthestore', null)}
+            </button>
+            <button aria-label="${Resource.msg('label.rescheduleAria', 'shoppingthestore', null)}" class="list-mystore d-none btn btn-block btn-secondary text-center"
+                    data-storeid="${store.ID}"
+                    onclick="location.href='${URLUtils.https('Stores-Find', 'showMap', false, 'storeId', store.ID)}'">
+                ${Resource.msg('label.reschedule', 'shoppingthestore', null)}
+            </button>
+        </div>
+    </div>
+</div>
+
+

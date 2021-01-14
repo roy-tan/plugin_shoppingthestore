@@ -1,0 +1,51 @@
+
+<div id="slotsarea" data-confirmslot="${URLUtils.url('Stores-SoftReserve')}" data-firstavailableslotdate="${pdict.firstAvailableSlotDate}">
+    <div class="d-none dayslots noslot">
+        <div class="card">
+            <div class="card-body"> 
+                ${Resource.msg('label.noslots', 'shoppingthestore', null)}
+            </div>
+        </div>
+    </div>
+    <isloop items="${Object.keys(pdict.slots)}" var="day">
+        <div id="dayslots-${day}" class="d-none dayslots" data-day="${day}">
+            <isloop items="${pdict.slots[day]}" var="slot">
+                <div class="card">
+                    <div class="card-body<isif condition="${slot.capacity===0}"> bg-secondary</isif>"> 
+                        <div class="row">
+                            <div class="col-3 pull-left text-nowrap h-100 my-auto <isif condition="${slot.capacity===0}"> text-white</isif>">
+                                ${slot.startTime} - ${slot.endTime}
+                            </div>
+                            <div class="col-9">
+                                <div 
+                                    data-time="${slot.startTime}" 
+                                    class='yourslot w-50 text-center pull-right<isif condition="${!pdict.reservedSlot || (pdict.reservedSlot.slotID !== slot.slotID)}"> d-none</isif>'>
+                                    ${Resource.msg('label.yourslot', 'shoppingthestore', null)}
+                                </div>
+                                <isif condition="${slot.capacity===0}">
+                                    <button disabled data-storeid="${store.ID}" data-slotID="${slot.slotID}" class="btn btn-primary w-50 text-center pull-right" aria-label="${Resource.msg('label.slotunavailable', 'shoppingthestore', null)}">         
+                                        ${Resource.msg('link.unavailable', 'shoppingthestore', null)}
+                                    </button>
+                                <iselse/>
+                                    <button 
+                                        data-storeid = "${pdict.preferredStoreId}" 
+                                        data-slotID = "${slot.slotID}" 
+                                        data-time = "${slot.startTime}" 
+                                        data-date = "${day}" 
+                                        type="submit" 
+                                        method = "post" 
+                                        class = 'softreserve btn btn-primary w-50 text-center pull-right<isif condition="${pdict.reservedSlot && (pdict.reservedSlot.slotID === slot.slotID)}"> d-none</isif>' 
+                                        aria-label = "${Resource.msg('label.bookslot', 'shoppingthestore', null)} ${slot.startTime} - ${slot.endTime}">
+                                        ${Resource.msg('link.schedule', 'shoppingthestore', null)}
+                                    </button>     
+                                </isif>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </isloop>
+        </div>
+    </isloop>
+</div>
+
+

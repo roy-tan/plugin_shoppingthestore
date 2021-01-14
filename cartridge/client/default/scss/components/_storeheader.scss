@@ -1,0 +1,27 @@
+
+.titlebox {
+    line-height: 1.1em;
+}
+
+.right-bottom {
+    right: 0;
+    bottom: 0;
+}
+
+.navbar-header .store .popover {
+    position: absolute;
+    display: none;
+    padding: 1em;
+    top: 85%;
+    left: -8em;
+    width: 400px;
+    max-width: 400px;
+}
+
+.navbar-header .store .popover.show {
+    display: block;
+}
+
+.headerstore .btn-link {
+    line-height: 0em;
+}

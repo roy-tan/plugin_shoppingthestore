@@ -1,0 +1,8 @@
+{
+	"name": "Store Profile Page",
+	"description": "Profile Page for Stores",
+	"region_definitions": [{
+		"id": "main",
+		"name": "Store Profile Region"
+	}]
+} 

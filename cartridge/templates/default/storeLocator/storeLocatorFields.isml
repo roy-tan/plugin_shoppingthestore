@@ -1,0 +1,22 @@
+<div class="card-body" id="buttoncard">
+    <div class="row">
+        <div class="col-sm-12 mb-2">
+            <strong>
+                ${Resource.msg('label.selectstoreforpickup', 'shoppingthestore', null)}
+            </strong>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block detect-location mb-2" data-action="${pdict.stores.actionUrl}" aria-label="${Resource.msg('label.findStoresMyLocation', 'shoppingthestore', null)}">
+        ${Resource.msg('button.use.my.location','storeLocator',null)}
+    </button>
+    <form action="${pdict.stores.actionUrl}" class="store-locator" method="get" name="storelocator">
+        <div class="form-group required">
+            <label class="form-control-label" for="store-postal-code">${Resource.msg('field.zip.postal.code','shoppingthestore',null)}</label>
+            <input autofocus type="text" class="form-control" id="store-postal-code" data-msgnoresult="${Resource.msg('msg.NoSearchResults', 'shoppingthestore', null)}" name="postalCode" value="" autocomplete="nofill" required/>
+            <div class="invalid-feedback"></div>
+        </div>
+        <button class="btn btn-block btn-outline-secondary btn-storelocator-search" type="submit" aria-label="${Resource.msg('label.findStoresAria', 'shoppingthestore', null)}">
+            ${Resource.msg('button.find.stores','storeLocator',null)}
+        </button>
+    </form>
+</div>

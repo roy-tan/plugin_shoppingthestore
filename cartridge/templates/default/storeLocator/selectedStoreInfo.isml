@@ -1,0 +1,111 @@
+
+<div class="storeinfo">
+    <div class="card overflow-auto">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <b>
+                        ${Resource.msg('label.pickupstore', 'shoppingthestore', null)}
+                    </b>
+                        <isinclude url="${URLUtils.url('Stores-StoreAddress', 'storeId', pdict.preferredStoreId)}" />
+                </div>
+            </div>
+            <isif condition="${!pdict.hideButtons}">
+                <div class="row">
+                    <div class="col-12 infobox">
+                        <button class="btn btn-block ${empty(pdict.preferredStoreId) ? 'btn-primary' : 'btn-secondary'} text-center" onclick="location.href='${URLUtils.https('Stores-Find', 'showMap', true, 'radius', 30)}'"  aria-label="${Resource.msg('label.storeedit', 'shoppingthestore', null)}">
+                            <isif condition="${empty(pdict.preferredStoreId)}">
+                                ${Resource.msg('link.select.store', 'shoppingthestore', null)}
+                            <iselse/>
+                                ${Resource.msg('link.change.store', 'shoppingthestore', null)}
+                            </isif>
+                        </button>
+                    </div>
+                </div>
+            </isif>
+        </div>
+    </div>
+    <div class="slotinfocard card overflow-auto mb-0">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div id="popupslotinfo" class='<isif condition="${!pdict.reservedSlot}"> d-none</isif>'>
+                        <b>
+                            <isif condition="${pdict.hideButtons}">
+                                ${Resource.msg('label.slotconfirmation', 'shoppingthestore', null)}
+                            <iselse/>
+                                <isif condition="${pdict.reservedSlot && pdict.reservedSlot.expiryTime}">
+                                    ${Resource.msg('label.pickupscheduled', 'shoppingthestore', null)}
+                                <iselse/>
+                                    <div class="text-danger">
+                                        ${Resource.msg('label.expired', 'shoppingthestore', null)}
+                                    </div>
+                                </isif>
+                            </isif>
+                        </b>
+                    </div>
+                    <div id="popupslotnoinfo" class='<isif condition="${pdict.reservedSlot}"> d-none</isif>'>
+                        <div class="store-name">
+                            <b>
+                               ${Resource.msg('label.pickupnotscheduled', 'shoppingthestore', null)}
+                            </b>
+                        </div>
+                    </div>
+                    <table>
+                        <tr class="store-address">
+                            <td>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            </td>
+                            <td class="pl-2">
+                                <isif condition="${pdict.preferredStoreId && !pdict.reservedSlot}">
+                                    <div class="nextAvailableSlot" data-action="${URLUtils.url('Stores-GetNextAvailableSlot')}">
+                                        ${Resource.msg('label.requestingNextSlot', 'shoppingthestore', null)}
+                                    </div>
+                                </isif>
+                                <div id="popupslotinfo" class='<isif condition="${!pdict.reservedSlot}"> d-none</isif>'>
+                                    <div>
+                                        ${Resource.msg('label.date', 'shoppingthestore', null)}
+                                        <div id="pickupdate"
+                                            data-date='<isif condition="${pdict.reservedSlot}">${pdict.reservedSlot.date}</isif>'
+                                            class="d-inline-block">
+                                            <isif condition="${pdict.reservedSlot}">
+                                                ${pdict.reservedSlot.dateFormatted}
+                                            </isif>
+                                        </div>
+                                    </div>
+                                    <div>${Resource.msg('label.time', 'shoppingthestore', null)}
+                                        <div id="pickuptime" class="d-inline-block">
+                                            <isif condition="${pdict.reservedSlot}">
+                                                ${pdict.reservedSlot.timeFormatted}
+                                            </isif>
+                                        </div>
+                                    </div>
+                                    <isif condition="${pdict.reservedSlot && pdict.reservedSlot.expiryTime}">
+                                        ${Resource.msg('label.yourReservationWillExpire', 'shoppingthestore', null)} ${pdict.reservedSlot.expiryTime}
+                                    </isif>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <isif condition="${!pdict.hideButtons}">
+                <div class="row">
+                    <div class="col-12 infobox">
+                        <button class="btn btn-block ${empty(pdict.reservedSlot) ? 'btn-primary' : 'btn-secondary'} text-center" onclick="location.href='${URLUtils.https('Stores-Find', 'showMap', false, 'storeId', pdict.preferredStoreId)}'" aria-label="${Resource.msg('label.slotedit', 'shoppingthestore', null)}">
+                            <isif condition="${pdict.reservedSlot}">
+                                <isif condition="${pdict.reservedSlot.expiryTime}">
+                                    ${Resource.msg('link.change.schedule', 'shoppingthestore', null)}
+                                <iselse/>
+                                    ${Resource.msg('button.reschedule', 'shoppingthestore', null)}
+                                </isif>
+                            <iselse/>
+                                ${Resource.msg('label.schedule', 'shoppingthestore', null)}
+                            </isif>
+                        </button>
+                    </div>
+                </div>
+            </isif>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/storeLocator.css');
+    
+        assets.addCss('/css/shoppingTheStore/shoppingTheStore.css');
+</isscript>
+
+<div id='daycontainer' data-locale="${Resource.msg('setting.calendarLocale', 'shoppingthestore', null)}" data-days="0" data-maxdays="${pdict.maxDays}" class="card<isif condition="${!pdict.slots}"> h-100</isif>" data-formattedDays="${pdict.formattedDays}">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 font-weight-bold">
+                ${Resource.msg('label.schedulepickup', 'shoppingthestore', null)} 
+            </div>
+        </div>
+
+        <isif condition="${pdict.slots}">
+            <isloop items="${["3","7"]}" var="step">
+                <div class="container">
+                    <div class="<isif condition="${step==="3"}">d-xs-block d-sm-none d-md-block d-lg-none<iselse/>d-none d-sm-block d-md-none d-lg-block</isif>">
+                        <div class="row my-2">
+                            <div class="col-12 text-center">
+                                <button id="lastWeek-${step}" data-step="-${step}" type="submit" class="d-none bg-transparent border-0 changeWeek reduceWeek" aria-label="${Resource.msg('label.showPreviousDays', 'shoppingthestore', null)}"><</button>
+                                <div id="dayswitch-${step}" class="d-inline-block"></div>
+                                <button id="nextWeek-${step}" data-step="+${step}" type="submit" class="bg-transparent border-0 changeWeek increaseWeek" aria-label="${Resource.msg('label.showFollowingDays', 'shoppingthestore', null)}">></button>
+                            </div>
+                        </div>
+                        <div id="table-${step}" class="row radio-toolbar">
+                        </div>
+                    </div>
+                </div>
+            </isloop>
+            <isinclude template="storeLocator/slotPickerResults" />
+        <iselse/>
+            <div class="align-middle align-items-center h-100 my-5">
+                <h3 class="align-middle align-items-center text-center mt-5">
+                    <isinclude template="storeLocator/decorators/noAvailability" />
+                </h3>
+                <p class="align-middle align-items-center text-center my-3">
+                    ${Resource.msg('label.PleaseContinueShopping', 'shoppingthestore', null)}
+                </p>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button class="d-blockalign-middle align-items-center btn btn-primary text-center mt-2" onclick="location.href='${URLUtils.https('Home-Show')}'" aria-label="${Resource.msg('label.findOtherStore', 'shoppingthestore', null)}">
+                            ${Resource.msg('label.ContinueShopping', 'shoppingthestore', null)}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </isif>
+    </div>
+</div>

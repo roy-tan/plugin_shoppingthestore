@@ -1,0 +1,45 @@
+ 
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        if (pdict.stores.googleMapsApi) {
+            assets.addJs(pdict.stores.googleMapsApi);
+        }
+        assets.addJs('/js/storeLocator.js');
+    
+        assets.addCss('/css/shoppingTheStore/shoppingTheStore.css');
+    </isscript>
+
+    <isinclude template="storeLocator/dialogs/changeStoreDialog" />
+    <isinclude template="storeLocator/dialogs/confirmSlotDialog" />
+    <isinclude template="storeLocator/dialogs/reserveFailedDialog" />
+
+    <div class="container-fluid">
+        <isinclude template="storeLocator/progressBar"/>
+
+        <div class="row pt-2">
+            <div class="col-12 col-md-6 col-lg-5 col-xl-4 pr-0 pl-0">
+                <isinclude template="storeLocator/storeLocatorNoDecorator" />
+            </div>
+            <div class="col-12 col-md-6 col-lg-7 col-xl-8">
+                <div id="mapdiv" <isif condition="${pdict.showMap == 'false'}">data-hideafterinit="true"</isif>>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('mapAPI')}">
+                        <div class="jumbotron map-canvas d-block" data-has-google-api="${pdict.stores.googleMapsApi ? true : false}" data-locations="${pdict.stores.locations}"></div>
+                    <iselse/>
+                        <p class="store-locator-no-apiKey alert alert-danger">${Resource.msg('error.no.api.key','storeLocator',null)}</p>
+                    </isif>
+                </div>
+                <div id="pickerdiv">
+                    <isif condition="${pdict.showMap!='true'}">
+                        <isinclude template="storeLocator/slotPicker"/>
+                    </isif>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row d-md-none">
+            <isinclude template="storeLocator/storeSearchResults" />
+        </div>
+    </div>
+</isdecorate>

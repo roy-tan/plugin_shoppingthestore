@@ -1,0 +1,6 @@
+<isloop items="${pdict.stores.stores}" var="store" status="loopState">
+    <li class="card-body nostyle" id="${store.ID}">
+        <isset name="infowindow" value="${pdict.infoWindow}" scope="page"/>
+        <isinclude template="storeLocator/storeDetails" />
+    </li>
+</isloop>

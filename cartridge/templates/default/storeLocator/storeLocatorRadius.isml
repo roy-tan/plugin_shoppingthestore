@@ -1,0 +1,6 @@
+<label for="radius">${Resource.msg('field.radius','storeLocator',null)}</label>
+<select class="form-control custom-select radius" data-changedByCustomer="false" id="radius" name="radius" data-action-url="${pdict.stores.actionUrl}">
+    <isloop items="${pdict.stores.radiusOptions}" var="option">
+        <option <isif condition="${option == pdict.radius}">selected</isif>><isif condition="${option == 'Unlimited'}">${Resource.msg('label.noRadiusRestriction', 'shoppingthestore', null)}<iselse>${StringUtils.formatInteger(option)}</isif></option>
+    </isloop>
+</select>

@@ -1,0 +1,21 @@
+{
+    "name": "Store Profile Image",
+    "description": "Image of the Store",
+    "group": "assets",
+    "attribute_definition_groups": [{
+            "id": "headlineContent",
+            "name": "Headline Content",
+            "description": "The profile page will show the store's image if set. If no image is set this fallback image will be shown",
+            "attribute_definitions": [
+                {
+                    "id": "storeimage",
+                    "name": "Store Image",
+                    "type": "image",
+                    "required": false
+                }
+
+            ]
+        }
+    ],
+    "region_definitions": []
+}

@@ -1,0 +1,26 @@
+
+<div class="row">
+    <div class="col-3 hidden-sm-down"></div>
+    <div class="col-12 col-md-6 mt-4">
+        <div class="dw-wizard" role="dialog">
+            <div class="dw-wizard-progress dw-wizard-progress-horizontal">
+                <div data-progress="1" class="dw-wizard-progress-item is-active">
+                    <div class="dw-wizard-progress-link">
+                        ${Resource.msg('label.bar.step1', 'shoppingthestore', null)}
+                    </div>
+                </div>
+                <div data-progress="2" class="dw-wizard-progress-item">
+                    <div class="dw-wizard-progress-link">
+                        ${Resource.msg('label.bar.step2', 'shoppingthestore', null)}
+                    </div>
+                </div>
+                <div data-progress="3" class="dw-wizard-progress-item">
+                    <div class="dw-button dw-button-clear dw-wizard-progress-link">
+                        ${Resource.msg('label.bar.step3', 'shoppingthestore', null)}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3 hidden-sm-down"></div>
+</div>

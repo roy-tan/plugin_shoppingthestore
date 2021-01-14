@@ -1,0 +1,33 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/imageAndTextCommon.css');
+</isscript>
+<style>
+.mainbanner-image {
+    height: 50vh;
+}
+</style> 
+
+<div class="card">
+    <div class="card-body">
+        <div class="mainbanner-container">
+            <div class="row pb-3">
+                <div class="col-12">
+                    <figure class="mainbanner-figure image-component">
+                        <picture>
+                            <source srcset="${pdict.image.src.desktop}" media="(min-width: 1024px)"/>
+                            <source srcset="${pdict.image.src.tablet}" media="(min-width: 768px)"/>
+                            <isset name="imageName" value="${Resource.msg('pd.ITC.image.alt','pageDesigner',null)}" scope="page"/>
+                            <img
+                                class="mainbanner-image image-fluid common-image-component common-image-filter"
+                                src="${pdict.image.src.mobile}"
+                                style="--focal-point-x:${pdict.image.focalPointX}; --focal-point-y:${pdict.image.focalPointY}"
+                                alt="${pdict.image.alt}" title="${pdict.image.title}"
+                                />    
+                        </picture> 
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<isif condition="${pdict.name === null}">
+    <div class="user hidden-md-down">
+        <div class="titlebox d-inline-block mr-2">
+            <a href="${URLUtils.https('Login-Show')}" aria-label="${Resource.msg('label.loginShow', 'shoppingthestore', null)}">
+                <div class="titlebox  d-inline-block">    	
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                    <span class="user-message">${Resource.msg('link.header.login', 'account', null)}</span>
+               </div>
+               <div>
+                    ${Resource.msg('label.myaccount', 'shoppingthestore', null)}
+               </div> 
+            </a>
+        </div>
+    </div>
+<iselse/>
+    <div class="user hidden-md-down" tabindex="0">
+        <i class="fa fa-sign-in" aria-hidden="true"></i>
+        <span class="user-message">${pdict.name}</span>
+        <div class="popover popover-bottom">
+            <a href="${URLUtils.https('Account-Show')}" aria-label="${Resource.msg('label.accountShow', 'shoppingthestore', null)}">${Resource.msg('link.header.myaccount', 'account', null)}</a>
+            <a href="${URLUtils.url('Login-Logout')}" aria-label="${Resource.msg('label.logout', 'shoppingthestore', null)}">${Resource.msg('link.header.logout', 'account', null)}</a>
+        </div>
+    </div>
+</isif>
+<div id="mystore" class="store d-inline-block" data-url="${URLUtils.url('Stores-CurrentStore')}">
+    <isinclude url="${URLUtils.url('Stores-CurrentStore')}" />
+</div>

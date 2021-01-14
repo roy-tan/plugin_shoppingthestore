@@ -1,0 +1,13 @@
+<div class="col-sm-12">
+    <div class="card results-card">
+        <div class="card-header">
+            <isinclude template="storeLocator/storeLocatorRadius" />
+        </div>
+        <div class="card-body store-locator-no-results">
+            <p class="text-center ">${Resource.msg('error.no.results','storeLocator',null)}</p>
+        </div>
+        <ol class="list-group list-group-flush results striped" data-search-key="${JSON.stringify(pdict.stores.searchKey)}" data-radius="${pdict.stores.radius}" data-has-results="${pdict.stores.stores.length > 0}">       
+            <isinclude template="storeLocator/storeLocatorResults" />
+        </ol>
+    </div>
+</div>

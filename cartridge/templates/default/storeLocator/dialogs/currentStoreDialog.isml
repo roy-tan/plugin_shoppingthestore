@@ -1,0 +1,10 @@
+
+<div role="dialog" class="position-relative selectedStorePopupContainer<isif condition="${!pdict.preferredStoreId}"> d-none</isif>"  aria-label="${Resource.msg('label.storeinformation', 'shoppingthestore', null)}">
+    <div class="popover popover-bottom">
+        <div class="selectedStorePopup">
+            <isif condition="${pdict.preferredStoreId}">
+                <isinclude template="storeLocator/selectedStoreInfo"/>
+            </isif>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+<div id="miniaccount" class="store d-inline-block">
+    <isinclude url="${URLUtils.url('Account-TwoLineHeader')}" />
+</div>

@@ -1,0 +1,81 @@
+<isif condition="${empty(store)}">
+    <table>
+        <tr class="store-address">
+            <td>
+                <i aria-hidden="true" class="fa fa-map-marker"></i>
+            </td>
+            <td class="pl-3">
+                ${Resource.msg('link.no.store.selected', 'shoppingthestore', null)}
+            </td>
+        </tr>
+    </table>
+<iselse/>
+    <table>
+        <tr class="store-address">
+            <td>
+                <a aria-label="${Resource.msg('label.showStoreOnGoogleMaps', 'shoppingthestore', null)}"
+                   class="text-dark" href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}"
+                   target='_blank'>
+                <i aria-hidden="true" class="fa fa-map-marker"></i>
+                </a>
+            </td>
+            <td>
+                <button aria-label="${Resource.msg('label.storeProfile', 'shoppingthestore', null)}"
+                        class="store-profile-link store-name btn btn-link pl-2"
+                        data-action="${URLUtils.https('Stores-GetStoreProfilePage')}"
+                        data-availableSlot="${URLUtils.url('Stores-GetNextAvailableSlot')}"
+                        data-profileUrl="${URLUtils.https('Stores-GetStoreProfilePagePD')}"
+                        data-storeId="${store.ID}">
+                    <u>
+                        <strong>${store.name}</strong>
+                    </u>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="pr-1">
+            </td>
+            <td class="pl-2">
+                <isif condition="${store.address1}">
+                    <div class="pl-1">${store.address1}</div>
+                </isif>
+                <isif condition="${store.address2}">
+                    <div class="pl-1">
+                        ${store.address2}
+                    </div>
+                </isif>
+                <div class="pl-1">
+                    <isif condition="${store.city}">
+                        ${store.city}
+                    </isif>
+                    <isif condition="${store.stateCode}">
+                        ${store.stateCode}
+                    </isif>
+                    <isif condition="${store.postalCode}">
+                        ${store.postalCode}
+                    </isif>
+                    <isif condition="${store.countryCode}">
+                        ${store.countryCode}
+                    </isif>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <isif condition="${store.phone}">
+        <table class="pt-2">
+            <tr class="store-address">
+                <td>
+                    <i aria-hidden="true" class="fa fa-phone"></i>
+                </td>
+                <td class="pl-2">
+                    <span>
+                        <a aria-label="${Resource.msg('label.callStore', 'shoppingthestore', null)}" class="storelocator-phone" href="tel:${store.phone}">
+                            ${store.phone}
+                        </a>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </isif>
+    <div class="storeListNextAvailableSlot pt-2" data-storeid="${store.ID}"></div>
+</isif>

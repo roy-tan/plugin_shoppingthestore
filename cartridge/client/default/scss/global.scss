@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@import "~base/global";
+@import "components/storeheader";
+:root {
+    --primary-color: red;
+    --body-background-color: #f9f9f9;
+    --menu-background: #444;
+    --menu-text-color: #fff;
+    --interaction-color: #e8a350;
+    --header-font: 'Dosis';
+    --body-font: 'Helvetica Neue';
+    --third-color: #b20000;
+    --gray-color: #a7a7a7;
+}

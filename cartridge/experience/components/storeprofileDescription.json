@@ -1,0 +1,38 @@
+{
+    "name": "Store Profile Description",
+    "description": "Description of the Store",
+    "group": "assets",
+    "attribute_definition_groups": [{
+        "id": "headlineContent",
+        "name": "Headline Content",
+        "description": "The presentation of the headline",
+        "attribute_definitions": [
+            {
+                "id": "storedescription",
+                "name": "Store Description",
+                "type": "markup",
+                "required": false
+            },
+            {
+                "id": "detailname",
+                "name": "Detail Name",
+                "type": "string",
+                "required": true
+            }
+        ]
+    },{
+        "id": "defaultcontent",
+        "name": "Default Content",
+        "description": "The events of the store will be shown if set. The events here serve as fallback",
+        "attribute_definitions": [
+            {
+                "id": "detaildescription",
+                "name": "Detail Description",
+                "type": "markup",
+                "required": false
+            }
+        ]
+    }
+    ],
+    "region_definitions": []
+}

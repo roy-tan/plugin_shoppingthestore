@@ -1,0 +1,31 @@
+
+<div class="container store-locator-container">
+    <div class="row py-2" id="closecard" style="display:none">
+        <div class="col-12 d-none closebuttons" id="buttonshowMap">
+            <div class="pull-left">
+                <button id="closeSearchResultsShowMap" class="slideUpSearchForm btn btn-link" aria-label="${Resource.msg('label.returntolist', 'shoppingthestore', null)}">
+                    <span aria-hidden="true">
+                        <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                    </span> 
+                    ${Resource.msg('label.returntolist', 'shoppingthestore', null)}    
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card" id="searchform">
+        <div class="row">
+            <div class="col-sm-12">
+                <isinclude template="storeLocator/storeLocatorFields" />
+            </div>
+        </div>
+    </div>
+    <div class="row hidden-sm-down storelist-desktop">
+        <isinclude template="storeLocator/storeSearchResults" />
+    </div>
+    <div class="store-info-flush pr-0 pl-0">
+        <isif condition="${pdict.showMap=='false' && pdict.store}">
+            <isinclude url="${URLUtils.url('Stores-StoreAddress', 'storeId', pdict.preferredStoreId)}" />
+            <isinclude template="storeLocator/storeSearchResults" />
+        </isif>
+    </div>
+</div>

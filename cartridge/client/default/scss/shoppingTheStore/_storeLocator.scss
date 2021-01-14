@@ -1,0 +1,41 @@
+/* storeLocatorNoDecorator.isml */
+.striped > li:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* storeLocator.isml */
+
+.storeimage {
+    background-image: url("https://ssl.c.photoshelter.com/img-get2/I0000akhmVBCvL0U/sec=wdfsdfoeflwefms1440ed20200602DiaPzwjJcwd7PQ4/fit=2040x2040");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.map-canvas {
+    height: 100vh;
+}
+
+/* storeLocatorFields.isml */
+.map-canvas .store-details {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+li.nostyle {
+    list-style-type: none;
+}
+
+/* storeDetails.isml */
+.right-bottom {
+    right: 0;
+    bottom: 0;
+}
+
+tr.store-address {
+    vertical-align: baseline;
+}

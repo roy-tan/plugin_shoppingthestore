@@ -1,0 +1,9 @@
+<isif condition="${pdict.tomorrow}">
+        ${Resource.msg('label.earliestSlot', 'shoppingthestore', null)}:
+        <br/>
+        <b>${pdict.tomorrow}</b> ${pdict.nextSlotDate}
+        <br/>
+        ${pdict.nextSlotStartTime} - ${pdict.nextSlotEndTime}
+<iselse/>
+    <isinclude template="storeLocator/decorators/noAvailability" />
+</isif>

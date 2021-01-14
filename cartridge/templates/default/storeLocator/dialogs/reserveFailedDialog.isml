@@ -1,0 +1,30 @@
+<div class="modal fade" id="reserveFailed" tabindex="-1" role="dialog" aria-labelledby="changeStoreModalHeader">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center" id="changeStoreModalHeader">
+                    <h5>
+                        ${Resource.msg('heading.reserveFailed', 'shoppingthestore', null)}
+                    </h5>
+                </div>
+                <div id="flushmodal">
+                    ${Resource.msg('label.reservationFailed', 'shoppingthestore', null)}
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-secondary btn-block" onclick="location.href='${URLUtils.https('Stores-Find', 'showMap', false, 'storeId', pdict.preferredStoreId)}'"  aria-label="${Resource.msg('label.slotedit', 'shoppingthestore', null)}">
+                            ${Resource.msg('label.changeSlot', 'shoppingthestore', null)}
+                        </button>
+                    </div>
+                    <div class="col-md-6 mt-2 mt-md-0">
+                        <form action="${URLUtils.https('Home-Show')}" method="get">
+                            <button type="submit" class="btn btn-primary btn-block" aria-label="${Resource.msg('label.confirmSlot', 'shoppingthestore', null)}">
+                                ${Resource.msg('label.ContinueShopping', 'shoppingthestore', null)}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<isset name="store" value="${pdict.store}" scope="page"/>
+<div class="store-details">
+    <isset name="infowindow" value="${pdict.infoWindow}" scope="page"/>
+    <isif condition="${!empty(store)}" >
+        <isinclude template="storeLocator/storeDetails" />
+    </isif>
+</div>

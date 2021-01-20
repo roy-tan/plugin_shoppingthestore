@@ -1,0 +1,45 @@
+<div class="modal fade" id="editOrderModal" tabindex="-1" role="dialog" aria-labelledby="editOrderModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header edit-confirmation-header">
+                <h2 class="modal-title" id="editOrderModal">${Resource.msg('heading.order.edit.confirmation.modal','grocery',null)}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <p hidden class="order-to-edit"></p>
+            
+            <div class="modal-body edit-confirmation-body">
+            <isif condition="${pdict.hasBasket}">
+                ${Resource.msg('message.order.mergeedit.confirmation.modal','grocery',null)}
+                <div>${Resource.msg('message.order.mergeedit.cartinfo.modal','grocery',null)}</div>
+                
+                <div>${Resource.msg('message.order.mergeedit.cartheading.modal','grocery',null)}</div>
+                <isloop items="${pdict.basketContent}" var="lineItem">
+                <div> ${lineItem}</div>
+                </isloop>
+            <iselse>
+                ${Resource.msg('message.order.edit.confirmation.modal','grocery',null)}
+            </isif>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary edit-merge-order-confirmation-btn"
+                        data-dismiss="modal"
+                        data-order="${pdict.order.orderNumber}"
+                        data-action = "${URLUtils.abs('ScheduledOrder-Edit')}">
+                        <isif condition="${pdict.hasBasket}">
+                    ${Resource.msg('button.confirm.merge','grocery',null)}
+                                <iselse>
+                    ${Resource.msg('button.confirm.edit','grocery',null)}
+            			</isif>
+                </button>
+                <isif condition="${pdict.hasBasket}">                
+	                <button type="button" class="btn btn-outline-primary edit-nomerge-order-confirmation-btn"
+	                        data-dismiss="modal"
+	                        data-order="${pdict.order.orderNumber}"
+	                        data-action = "${URLUtils.abs('ScheduledOrder-Edit')}">
+	                    ${Resource.msg('button.confirm.nomerge','grocery',null)}
+	                </button>
+                </isif>
+            </div>
+        </div>
+    </div>
+</div>

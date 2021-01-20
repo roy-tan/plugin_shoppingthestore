@@ -1,0 +1,41 @@
+<isif condition="${shippingModel.shippingAddress}">
+	<isif condition="${shippingModel.selectedShippingMethod.storePickupEnabled === true}">
+     <div class="pricing">${Resource.msg('label.order.pickup', 'grocery', null)}</div>
+     <iselse/>
+     <div class="pricing">${Resource.msg('label.order.delivered', 'grocery', null)}</div>
+    </isif>
+    <isinclude template="checkout/shipping/shippingCardShippingAddress" />
+
+   <div class="pricing">  ${Resource.msg('label.order.timeslot', 'grocery', null)} </div>
+   <p>
+   ${pdict.order.slotStartDate ? pdict.order.slotStartDate  :''},
+   ${pdict.order.slotStartTime ? pdict.order.slotStartTime :''} 
+                    ${pdict.order.slotEndTime ? 'To' : Resource.msg('label.order.timeslot.msg', 'grocery', null) }  
+                    ${pdict.order.slotEndTime ? pdict.order.slotEndTime:''} 
+    </p>              
+</isif>
+
+<isif condition="${shippingModel.selectedShippingMethod}">
+    <div class="pricing">${pdict.order.resources.shippingMethod}
+        <span>
+            <isif condition="${shippingModel.productLineItems.items && shippingModel.productLineItems.items.length > 1}">
+                - ${shippingModel.productLineItems.items.length.toFixed(0)} ${pdict.order.resources.items}
+            </isif>
+        </span>
+    </div>
+    <div class="row leading-lines">
+        <p class="col-8 start-lines">
+            <span class="display-name">${shippingModel.selectedShippingMethod.displayName}</span>
+            <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
+                <span class="text-muted arrival-time">(${shippingModel.selectedShippingMethod.estimatedArrivalTime})</span>
+            </isif>
+        </p>
+        <p class="col-4 end-lines text-right">
+            <span class="price">
+                ${shippingModel.selectedShippingMethod.shippingCost}
+            </span>
+        </p>
+    </div>
+</isif>
+
+<isinclude template="checkout/shipping/giftMessageSummary" />

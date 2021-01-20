@@ -1,0 +1,7 @@
+<isif condition="${!empty(lineItem.promotions) && lineItem.promotions.length > 0}">
+    <isloop items="${lineItem.promotions}" var="promotion">
+        <div class="callout-message">
+            <isprint value="${promotion.calloutMsg}" encoding="off"/>
+        </div>
+    </isloop>
+</isif>

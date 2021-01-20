@@ -1,0 +1,8 @@
+<div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}
+<isif condition=" ${(lineItem.price && lineItem.price.list !== null) || lineItem.appliedPromotions}"> red</isif>
+">${lineItem.priceTotal.price}</div>
+<div class="strike-through
+<isif condition=${!lineItem.priceTotal.nonAdjustedPrice}>non-adjusted-price</isif>"
+>
+    ${lineItem.priceTotal.nonAdjustedPrice}
+</div>

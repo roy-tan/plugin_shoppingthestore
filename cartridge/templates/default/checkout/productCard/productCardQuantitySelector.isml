@@ -1,0 +1,27 @@
+<div class="quantity-form text-center">
+    <label class="line-item-pricing-info quantity-label my-auto"
+        for="quantity-${lineItem.UUID}">${Resource.msg('field.selectquantity', 'cart', null)}</label>
+    <div class="row cart-and-ipay">
+        <div class="col-sm-12">
+            <div class="add-to-cart" data-pid="${lineItem.id}"
+                data-quantity="${lineItem.quantity}"
+                data-uuid="${lineItem.UUID}" 
+                data-action="${pdict.actionUrls.updateQuantityUrl}">
+                <div class="update-quantity show">
+                    <button class="btn btn-primary cart-update-quantity decrease mx-0" aria-label="decrease quantity"
+                        data-decrease="true">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <div name="itemquantity" 
+                        class="itemquantity itemquantity-${product.id}"
+                        aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}"> 
+                        <span class="quantity" >${StringUtils.formatInteger(lineItem.quantity)}</span>
+                    </div>
+                    <button type="button" class="btn btn-primary cart-update-quantity increase mx-0 "
+                        aria-label="increment quantity"><i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

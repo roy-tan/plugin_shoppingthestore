@@ -1,0 +1,25 @@
+<div class="modal fade" id="saveOrderModal" tabindex="-1" role="dialog" aria-labelledby="saveOrderModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header save-confirmation-header">
+                <h2 class="modal-title" id="saveOrderModal"> ${Resource.msg('heading.order.save.confirmation.modal','grocery',null)}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body save-confirmation-body">
+                ${Resource.msg('message.order.save.confirmation.modal','grocery',null)}
+                <p class="order-to-save"></p>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary save-order-confirmation-btn"
+                        data-dismiss="modal"
+                        data-action = "${URLUtils.abs('ScheduledOrder-SaveChanges')}">
+                    ${Resource.msg('button.confirm','cart',null)}
+                </button>
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">
+                ${Resource.msg('button.cancel','cart',null)}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

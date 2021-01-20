@@ -1,0 +1,5 @@
+<isif condition="${shippingModel.selectedShippingMethod.storePickupEnabled === true}">
+    <strong>${Resource.msg('label.order.pickup', 'grocery', null)}</strong>
+<iselse>
+    <strong>${Resource.msg('label.order.delivered', 'grocery', null)}</strong>
+</isif>

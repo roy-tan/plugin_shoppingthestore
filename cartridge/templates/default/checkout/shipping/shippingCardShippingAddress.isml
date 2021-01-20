@@ -1,0 +1,11 @@
+<p> 
+    <isif condition="${shippingModel.shippingAddress}">
+        <span class="ship-to-name">${shippingModel.shippingAddress.firstName}</span>
+        <span class="ship-to-address1">${shippingModel.shippingAddress.address1}</span>
+        <isif condition="${shippingModel.shippingAddress.address2}">
+        	<span class="ship-to-address2">${shippingModel.shippingAddress.address2}</span>
+        </isif>
+        <span class="ship-to-city-st-zip">${shippingModel.shippingAddress.city}, ${shippingModel.shippingAddress.stateCode} ${shippingModel.shippingAddress.postalCode}</span>
+        <span class="ship-to-phone">${shippingModel.shippingAddress.phone}</span>
+    </isif>
+</p>

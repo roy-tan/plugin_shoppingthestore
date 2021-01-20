@@ -1,0 +1,25 @@
+<div class="modal fade" id="discardOrderModal" tabindex="-1" role="dialog" aria-labelledby="discardOrderModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header discard-confirmation-header">
+                <h2 class="modal-title" id="discardOrderModal"> ${Resource.msg('heading.order.discard.confirmation.modal','grocery',null)}</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body discard-confirmation-body">
+                ${Resource.msg('message.order.discard.confirmation.modal','grocery',null)}
+                <p class="order-to-save"></p>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary discard-order-confirmation-btn"
+                        data-dismiss="modal"
+                        data-action = "${URLUtils.abs('ScheduledOrder-DiscardChanges')}">
+                    ${Resource.msg('button.confirm','cart',null)}
+                </button>
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">
+                ${Resource.msg('button.cancel','cart',null)}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

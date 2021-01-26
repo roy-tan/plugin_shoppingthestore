@@ -27,7 +27,11 @@
                 (${shippingModel.selectedShippingMethod.estimatedArrivalTime})
             </isif>
         </p>
-
+        <isif condition="${pdict.order.slotStartTime}">
+            <span class="summary-details">${Resource.msg('label.order.timeslot', 'grocery', null)}
+            <br/>
+                ${pdict.order.slotStartTime} To ${pdict.order.slotEndTime} </span>
+        </isif>
         <isif condition="${shippingModel.isGift}">
             <p>
                 <strong>

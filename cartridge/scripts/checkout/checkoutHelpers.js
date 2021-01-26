@@ -7,7 +7,8 @@ var assign = require('server/assign');
 var collections = require('*/cartridge/scripts/util/collections');
 
 var Transaction = require('dw/system/Transaction');
-
+var Resource = require('dw/web/Resource');
+var Site = require('dw/system/Site');
 /**
  * Transfers current session's store address to shipping address of passed shipment
  * @param {w.order.Shipment} defaultShipment - default shipment of current users's basket
@@ -127,8 +128,38 @@ function copyBillingAddressToBasket(address, basket) {
     }
 }
 
+/**
+ * Sends a confirmation to the current user
+ * @param {dw.order.Order} order - The current user's order
+ * @param {string} locale - the current request's locale id
+ * @returns {void}
+ */
+function sendConfirmationEmail(order, locale) {
+    var OrderModel = require('*/cartridge/models/order');
+    var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+    var icsHelpers = require('*/cartridge/scripts/helpers/icsHelpers');
+    var Locale = require('dw/util/Locale');
+
+    var currentLocale = Locale.getLocale(locale);
+
+    var orderModel = new OrderModel(order, { countryCode: currentLocale.country, containerView: 'order' });
+
+    var orderObject = { order: orderModel };
+
+    var emailObj = {
+        to: order.customerEmail,
+        subject: Resource.msg('subject.order.confirmation.email', 'order', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.orderConfirmation
+    };
+
+    emailHelpers.sendEmail(emailObj, 'checkout/confirmation/confirmationEmail', orderObject);
+    icsHelpers.sendCalendar(emailObj, orderObject);
+}
+
 module.exports = assign({}, base, {
     setStoreAddressAsShippingAddr: setStoreAddressAsShippingAddr,
     copyShippingAddressToShipment: copyShippingAddressToShipment,
-    copyBillingAddressToBasket: copyBillingAddressToBasket
+    copyBillingAddressToBasket: copyBillingAddressToBasket,
+    sendConfirmationEmail: sendConfirmationEmail
 });

@@ -10,7 +10,7 @@ function formatDate(date, time) {
 
 function getCalendar(slotDate, startTime, endTime, description, location) {
     var currentDate = new Date();
-    const now = formatDate(currentDate.toDateString(), currentDate.getHours() + ":" + currentDate.getMinutes());
+    var now = formatDate(currentDate.toDateString(), currentDate.getHours() + ":" + currentDate.getMinutes());
     var calendar =
         "BEGIN:VCALENDAR\n" +
         "PRODID:-//Google Inc//Google Calendar 70.9054//EN\n" +
@@ -38,7 +38,8 @@ function getCalendar(slotDate, startTime, endTime, description, location) {
 
 function sendCalendar(emailObj, orderObj) {
     var order = orderObj.order;
-    var vCalendar = getCalendar(order.slotStartDate, order.slotStartTime, order.slotEndTime, order.orderNumber, order.shipping[0].matchingAddressId.replace(/-/g, ","));
+    var location = order.shipping[0].shippingAddress.address1 + ", " + order.shipping[0].shippingAddress.postalCode + ", " + order.shipping[0].shippingAddress.city;
+    var vCalendar = getCalendar(order.slotStartDate, order.slotStartTime, order.slotEndTime, order.orderNumber, location);
     var Mail = require('dw/net/Mail');
     var email = new Mail();
     email.addTo(emailObj.to);

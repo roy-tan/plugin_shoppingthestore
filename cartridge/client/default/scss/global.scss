@@ -12,3 +12,12 @@
     --third-color: #b20000;
     --gray-color: #a7a7a7;
 }
+
+
+/* stylelint-disable-next-line */
+
+@media (min-width: 544px) {
+    .modal-dialog {
+        max-width: 700px;
+    }
+}
